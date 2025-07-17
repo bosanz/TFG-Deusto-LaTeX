@@ -1,0 +1,39 @@
+# Archivos auxiliares de LaTeX
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.snm
+*.synctex.gz
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# Archivos temporales
+*~
+*.backup
+*.bak
+*.tmp
+
+# Archivos PDF generados (si los compilas localmente)
+main.pdf
+
+# Carpetas de sistema o IDEs
+.DS_Store
+.vscode/
+.idea/
