@@ -1,6 +1,6 @@
 # Plantilla LaTeX: `memoriaTFG.cls`
 
-Plantilla oficial para la elaboración de Trabajos Fin de Grado (TFG) de la Universidad de Deusto, adaptada a la normativa vigente del curso 2024–2025. Está diseñada para ofrecer un formato limpio, profesional y técnicamente adecuado, empleando la clase `scrbook` (KOMA-Script) junto con una configuración moderna de tipografía, estilos de código, y estructura documental.
+Plantilla oficial para la elaboración de Trabajos Fin de Grado (TFG) de la Universidad de Deusto, adaptada a la normativa vigente desde el curso 2024–2025. Está diseñada para ofrecer un formato limpio, profesional y técnicamente adecuado, empleando la clase `scrbook` (KOMA-Script) junto con una configuración moderna de tipografía, estilos de código, y estructura documental.
 
 > ⚠️ **Aviso importante:**  
 > Esta plantilla es una base técnica adaptada a la normativa, pero **es responsabilidad del estudiante asegurarse de que el documento final cumple todos los requisitos formales establecidos por la universidad**, incluyendo los definidos por la guía docente, posibles actualizaciones y criterios de evaluación del tribunal. Se recomienda revisar detenidamente el documento final antes de su entrega.
