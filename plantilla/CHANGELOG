@@ -2,6 +2,13 @@
                  --- PLANTILLA LaTeX PARA LA MEMORIA DEL ---
                  ---  PROYECTO FIN DE CARRERA DE ESIDE   ---
 
+Version 0.6 - 07/09/2026
+
+- Adaptación a la normativa PFG 2026–27.
+- La memoria utiliza una única portada firmada.
+- Actualización de Source Sans al paquete sourcesans.
+- Actualización de la documentación.
+
 Version: 0.4 14/11/2011
 
 En esta version se actualiza el diseño de la portada para contemplar la nueva

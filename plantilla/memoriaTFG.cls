@@ -1,7 +1,7 @@
-%% memoriaPFC.cls (Plantilla oficial PFG 2024–25 - Universidad de Deusto)
+%% memoriaTFG.cls (Plantilla oficial PFG 2026–27 - Universidad de Deusto)
 
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesClass{memoriaTFG}[2025/03/26 v0.5 Plantilla adaptada a normativa PFG 2024–25 de la Universidad de Deusto.]
+\ProvidesClass{memoriaTFG}[2026/09/07 v0.6 Plantilla adaptada a normativa PFG 2026–27 de la Universidad de Deusto.]
 
 %% ------------------------------
 %% Carga de clase base
@@ -18,13 +18,12 @@
 \RequirePackage[utf8]{inputenc}  % Codificación de entrada
 \RequirePackage[spanish,english]{babel}  % Idioma
 \RequirePackage{setspace}        % Interlineado
-\RequirePackage[default]{sourcesanspro} % Fuente moderna sans-serif
+\RequirePackage{sourcesans} % Fuente moderna sans-serif
 \renewcommand{\familydefault}{\sfdefault} % Fuente por defecto sans-serif
 \RequirePackage{url}             % URLs
 \RequirePackage{fancybox}        % Recuadros
 \RequirePackage[pdftex]{graphicx} % Imágenes
 \RequirePackage{ifthen}          % Lógica condicional
-\RequirePackage[pdftex]{color}   % Colores
 \RequirePackage{fancyvrb}        % Verbose
 \RequirePackage{amssymb}         % Símbolos matemáticos
 \RequirePackage{multibib}        % Múltiples bibliografías
@@ -39,6 +38,17 @@
                 bookmarks=true]{hyperref}
 \RequirePackage{bookmark}        % Mejoras para PDF
 \RequirePackage{xcolor}          % Más colores
+
+
+%% ------------------------------
+%% Adaptaciones de idioma
+%% ------------------------------
+
+% Terminología para tablas
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
 
 %% ------------------------------
 %% Configuración listings (código)
@@ -151,6 +161,7 @@
 %% Estructura del documento
 %% ------------------------------
 \renewcommand{\frontmatter}{%
+  \cleardoublepage
   \pagestyle{scrheadings}
   \pagenumbering{roman}
 }
@@ -219,7 +230,7 @@
 \newcommand{\resumenPersonalizado}[2]{%
   \cleardoublepage
   \pagenumbering{roman}  % Numeración en romanos
-  \pagestyle{headings}   % Cabecera activa
+  \pagestyle{scrheadings}   % Cabecera activa
   \vspace*{3cm}
   {\bfseries\Large Resumen\par}
   \vspace{0.5cm}
@@ -256,10 +267,10 @@
 }
 
 %% ------------------------------
-%% Seudocódigo y párrafos
+%% Pseudocódigo y párrafos
 %% ------------------------------
-\renewcommand{\lstlistlistingname}{\'Indice de Seudoc\'odigos}
-\renewcommand{\lstlistingname}{Seudoc\'odigo}
+\renewcommand{\lstlistlistingname}{Índice de Pseudocódigos}
+\renewcommand{\lstlistingname}{Pseudocódigo}
 
 \RedeclareSectionCommand[
   beforeskip=1ex,
@@ -319,8 +330,6 @@
 
 \RedeclareSectionCommand[runin=false]{subparagraph}
 
-\usepackage[none]{hyphenat}
+\RequirePackage[none]{hyphenat}
 \sloppy
-\usepackage{float}
-
-\usepackage[spanish]{babel}
+\RequirePackage{float}

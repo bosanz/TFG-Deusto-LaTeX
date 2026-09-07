@@ -23,6 +23,7 @@
 *.fls
 *.fdb_latexmk
 *.xdv
+*.lol
 
 # Archivos temporales
 *~

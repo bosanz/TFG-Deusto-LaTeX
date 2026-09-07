@@ -26,11 +26,10 @@ En este apartado se incluye el resumen del proyecto (de 200 a 250 palabras), que
 % Portada, resumen, indices
 \frontmatter
 
-% Se pueden incluir los PDFs de las portadas, pero deben de ser generados de forma indpendiente.
-% IMPORTANTE: si se opta por esta opción, hay que imprimir a PDF el documento para que los campos editables aparezcan en el documento final
-% Otra opción es convertirlos usando GhostScript: gs -dCompatibilityLevel=1.5 -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=portada_v1.5.pdf ../ejemplo_portada.pdf
+% La portada firmada debe generarse de forma independiente.
+% IMPORTANTE: comprueba que la portada y la firma se visualizan
+% correctamente en el PDF final.
 
-\includepdf[pages=1]{../portada_v1.5.pdf}
 \includepdf[pages=1]{../portada_firmada_v1.5.pdf}
 
 

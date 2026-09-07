@@ -29,8 +29,8 @@ Antes de entregar el TFG, asegúrate de comprobar los siguientes aspectos formal
 - [ ] **Sin errores de compilación ni advertencias críticas**:  
   Recompila al menos dos veces y revisa el log de LaTeX para identificar posibles errores de referencias, paquetes incompatibles o overfull boxes.
 
-- [ ] **Portadas incluidas correctamente en PDF**:  
-  Asegúrate de que los PDFs de portada y portada firmada se han incluido correctamente y se visualizan al inicio del documento.
+- [ ] **Portada incluida correctamente en PDF**:
+  Asegúrate de que el PDF de la portada firmada se ha incluido correctamente y se visualiza al inicio del documento.
 
 > 💡 Algunos paquetes de terceros pueden interferir con el estilo de numeración, las cabeceras o los márgenes. Se recomienda evitarlos salvo que sea estrictamente necesario y comprobar visualmente los efectos que producen en el documento final.
 
@@ -41,11 +41,10 @@ Este repositorio contiene los archivos necesarios para compilar un Proyecto Fin 
 
 | Archivo / Carpeta                  | Descripción                                                                 |
 |-----------------------------------|-----------------------------------------------------------------------------|
-| `memoriaPFC.cls`                  | Clase principal de LaTeX con estilo y configuración conforme a la normativa. |
+| `memoriaTFG.cls`                  | Clase principal de LaTeX con estilo y configuración conforme a la normativa. |
 | `main.tex`                        | Documento principal desde el que se compila la memoria. Incluye resumen, estructura y configuración general. |
 | `dummy.tex`                       | Archivo de ejemplo para un capítulo. Puede duplicarse y renombrarse por capítulos reales del proyecto. |
 | `referencias.bib`                 | Archivo BibTeX con referencias bibliográficas. Se usa con estilo IEEE.      |
-| `portada_v1.5.pdf`                | Portada oficial del proyecto en formato PDF. Generada de forma independiente. |
 | `portada_firmada_v1.5.pdf`        | Portada firmada escaneada e incluida como parte del documento.              |
 | `img/` (opcional)                 | Carpeta para imágenes utilizadas en la memoria (`.png`, `.pdf`, `.jpg`, etc.). |
 | `README.md`                       | Documento actual con instrucciones, estructura y recomendaciones.           |
@@ -119,23 +118,22 @@ Se incluye mediante el entorno `listings`. El estilo está preconfigurado para m
             print("Hola mundo")
     \end{lstlisting}
   ```
-Todos estos comandos están definidos en la clase memoriaPFC.cls, por lo que no requieren configuración adicional por parte del usuario.
+Todos estos comandos están definidos en la clase memoriaTFG.cls, por lo que no requieren configuración adicional por parte del usuario.
 
 
-## Portadas del documento
+## Portada del documento
 
-La plantilla permite incluir las portadas oficiales del Proyecto Fin de Grado mediante el uso del paquete `pdfpages` y el comando:
+La plantilla permite incluir la portada oficial del Proyecto Fin de Grado mediante el uso del paquete `pdfpages` y el comando:
 
 ```latex
-\includepdf[pages=1]{../portada_v1.5.pdf}
 \includepdf[pages=1]{../portada_firmada_v1.5.pdf}
 ```
 
-Estas líneas insertan directamente los PDFs generados previamente (normalmente por la plataforma de entrega o tras escanear la portada firmada). Deben colocarse justo al inicio del documento, antes del resumen y del índice.
+Esta línea inserta directamente el PDF de la portada firmada, generado previamente (normalmente por la plataforma de entrega o tras escanear la portada firmada). Debe colocarse justo al inicio del documento, antes del resumen y del índice.
 
 ### Alternativa
 
-Si prefieres integrar las portadas **a posteriori** (por ejemplo, en una herramienta de edición de PDFs), puedes **comentar esas líneas** del `.tex`:
+Si prefieres integrar la portada **a posteriori** (por ejemplo, en una herramienta de edición de PDFs), puedes **comentar esa línea** del `.tex`:
 
 ```latex
 %\includepdf[pages=1]{...}
