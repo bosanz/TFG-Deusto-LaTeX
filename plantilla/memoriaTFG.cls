@@ -118,9 +118,12 @@
 %% Márgenes y disposición
 %% ------------------------------
 \RequirePackage[a4paper,
-  top=1.0cm,
-  headheight=0.2cm,
-  headsep=2.4cm,
+  % Reservar la altura real evita que scrlayer-scrpage cambie topmargin.
+  % La caja de cabecera termina a 14 mm: reproduce la cabecera de main.pdf
+  % (junio de 2026). El cuerpo sigue comenzando a 36 mm: 14 + 22 mm.
+  top=\dimexpr 14mm-18pt\relax,
+  headheight=18pt,
+  headsep=22mm,
   bottom=1.2cm,
   footskip=3.3cm,
   inner=2.5cm,
