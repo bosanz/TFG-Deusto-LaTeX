@@ -132,6 +132,13 @@
   includefoot
 ]{geometry}
 
+% El número de 11 pt elevado 6 pt necesita una caja de 18.93 pt.
+% Antes scrlayer-scrpage ampliaba automáticamente los 15 pt iniciales
+% y añadía la diferencia a footskip. Fijamos ambos valores explícitamente.
+% La compensación se aplica después de geometry para no reducir textheight.
+\setlength{\footheight}{18.93pt}
+\addtolength{\footskip}{3.93pt}
+
 %% ------------------------------
 %% Cabecera y pie de página
 %% ------------------------------
@@ -142,7 +149,7 @@
 \chead{}
 \ohead{{\fontsize{8}{10}\selectfont\textit{PROYECTO FIN DE GRADO}}}
 
-% Pie de página con número centrado
+% Pie de página con número alineado a la derecha
 \ifoot{}
 \cfoot{}
 \ofoot{\raisebox{6pt}{{\fontsize{11}{13}\selectfont\pagemark}}}

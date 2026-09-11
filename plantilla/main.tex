@@ -3,18 +3,14 @@
 % Autor del trabajo
 \autor{Nombre Apellido Apellido}
 
-% Introduce aquí el resumen del proyecto
-\resumen{% 200-250 palabras
-En este apartado se incluye el resumen del proyecto (de 200 a 250 palabras), que debe describir el proyecto realizado...
-
-}
+% Descriptores para los metadatos del PDF. El resumen visible se define abajo.
 \descriptores{Proyecto, Ingeniería, Desarrollo, Documentación, Evaluación}
 
+% Numeración continua de figuras, como en el documento de ejemplo.
+\counterwithout{figure}{chapter}
+\urlstyle{same}
 
-
-%
 % COMIENZO DEL DOCUMENTO
-%
 \begin{document}
 
 
@@ -22,6 +18,7 @@ En este apartado se incluye el resumen del proyecto (de 200 a 250 palabras), que
 
 % Determinar el idioma. Comentar para inglés.
 \selectlanguage{spanish}
+\renewcommand{\contentsname}{Índice}
 
 % Portada, resumen, indices
 \frontmatter
@@ -40,35 +37,54 @@ En este apartado se incluye el resumen del proyecto (de 200 a 250 palabras), que
         {Aquí deben aparecer entre 3 y 5 palabras clave (descriptores) que ayuden a clasificar adecuadamente el proyecto.}
 
 
-% Generamos las tablas de contenidos correspondientes.
+% El texto explicativo del modelo acompaña al índice generado por LaTeX.
+\BeforeStartingTOC[toc]{%
+  En este punto debe aparecer el índice de los apartados de los que consta la memoria, con un índice de figuras y/o tablas, en caso de que exista.\par
+  La paginación del índice será en números romanos en minúsculas (comenzando en la página ii).\par
+}
 \tableofcontents
-\listoffigures % Opcional
-\listoftables % Opcional
-\lstlistoflistings % Opcional
+\listoffigures
+% Activar estas listas cuando la memoria contenga tablas o pseudocódigo.
+%\listoftables
+%\lstlistoflistings
 
 % Contenidos
 \mainmatter
 
 \input{dummy}
 
-\chapter*{Agradecimientos}
+% El modelo combina referencias reales y ejemplos de formatos de cita.
+% Se transcriben explícitamente para conservar su texto y orden; las citas
+% del cuerpo siguen resolviéndose automáticamente mediante \cite.
+% Para una memoria real puede usarse \bibliografia{referencias} con BibTeX.
+\KOMAoptions{bibliography=numbered}
+\begin{thebibliography}{7}
+  \bibitem{camilli}
+  C. Camilli et al., “Revisión sistemática integrativa del Trabajo Fin de Grado: aspectos contextuales y pedagógicos”, \textit{Revista Complutense de Educación}, 33(3) 2022: 543--553, ISSNe: 1988-2793.
 
-\begin{itemize}
- \item A Rebeca Cortázar, por la ayuda prestada para que esta plantilla
-        cumpliese las normas de entrega.
-\end{itemize}
+  \bibitem{formato-web}
+  Formato cita web: “Título/Nombre de la Web”, \url{http://www.google.es}, (consultado el 7/10/2022).
 
+  \bibitem{race}
+  “Real Automóvil Club de España”. \url{http://www.race.es/corporativo/noticias/-/blogs/los-accidentes-de-trafico-son-la-primera-causa-de-mortalidad-entre-los-15-y-29-anos} (consultado el 7/10/2022).
 
+  \bibitem{formato-libro}
+  Formato cita libro: Autores, “Título de la contribución/Libro”, \textit{Editorial en cursiva}, Año de la publicación.
 
+  \bibitem{formato-articulo}
+  Formato artículo en revista/congreso: Autores, “Título del artículo”, \textit{Nombre de la revista/congreso en cursiva}, rango de páginas, año de la publicación. (dirección web si es accesible).
 
+  \bibitem{bilstrup}
+  K. Bilstrup, E. Uhlemann, E. G. Ström, and U. Bilstrup, “On the ability of the 802.11p mac method and stdma to support real-time vehicle-to vehicle communication,” \textit{EURASIP Journal on Wireless Communications and Networking - Special issue on wireless access in vehicular environments}, no. 5, January 2009.
 
-% Apendices
-\backmatter
+  \bibitem{davila}
+  Luis Dávila Gómez, Luis Castedo Cepeda, Cecilia García Cena, Cristobal Tapia Garcí, “Sistema didáctico de bajo coste para el aprendizaje de dispositivos lógicos programables”, TAEE2012, 105--109, 2012. \url{http://taee.euitt.upm.es/actas/2012/papers/2012S3A5.pdf}
+\end{thebibliography}
 
-\bibliografia{referencias}
+NOTA: la bibliografía deberá referenciarse a lo largo de la memoria cuando corresponda, no ser solamente un listado de fuentes consultadas sin saber para qué. Así, su numeración no sigue un orden alfabético, sino de aparición a lo largo de la memoria.
 
+Ejemplo de referencia en el texto de la memoria:
 
-\appendix
-\chapter{Ejemplo Apéndice 1}
+El proyecto realizado comparte características con otros existentes \cite{bilstrup}, si bien se han añadido\ldots
 
 \end{document}
