@@ -19,9 +19,8 @@
 
 
 
-% Determinar el idioma. Comentar para inglés.
+% Cambiar spanish por english para el resumen y los títulos en inglés.
 \selectlanguage{spanish}
-\renewcommand{\contentsname}{Índice}
 
 % Portada, resumen, indices
 \frontmatter
@@ -33,11 +32,19 @@
 \includepdf[pages=1]{../portada_firmada_v1.5.pdf}
 
 
+\iflanguage{english}{%
+  \resumenPersonalizado{
+    Note that this is page i. The following sections, preceding the first chapter of the report, use lowercase Roman numerals.
+
+    This section contains the project abstract (200 to 250 words), which must describe the completed project. It should therefore be based on the project description submitted with the registration application. However, the project had not yet been carried out at that stage, whereas it has been completed by the time the report is submitted. It is therefore necessary to revise at least the verb tenses and provide further details now that the project is complete. The abstract should include the main field of knowledge, a brief description of the tasks involved (study, planning, improvement, development, etc.), and the specific scope of the project, especially if it is a subproject within a larger project. The abstract and keywords must fit on one page, which must have the same header as the rest of the document.
+  }{Include between 3 and 5 keywords that help classify the project appropriately.}
+}{%
 \resumenPersonalizado{
         Obsérvese que esta página es la página i y las secciones siguientes, las previas al primer capítulo de la memoria se numeran en números romanos en minúsculas.
         
         En este apartado se incluye el resumen del proyecto (de 200 a 250 palabras), que debe describir el proyecto realizado, es decir, se basará en la descripción del proyecto que se presenta en la solicitud de registro del mismo, pero en dicha descripción el proyecto aún no estaba realizado, y en la entrega del mismo sí, por lo que es necesario revisar al menos los tiempos verbales, además de aportar más detalle, al estar el proyecto terminado. En este resumen debería incluirse el área de conocimiento principal, una breve descripción de las tareas de que consta el proyecto (estudio, planificación, mejora, desarrollo…), y el alcance específico del mismo (sobre todo si se trata de un subproyecto dentro de un proyecto más grande). Resumen y descriptores no deben superar la página de longitud, y esta página lleva el mismo encabezado que el resto del documento.}
         {Aquí deben aparecer entre 3 y 5 palabras clave (descriptores) que ayuden a clasificar adecuadamente el proyecto.}
+}
 
 
 % El texto explicativo del modelo acompaña al índice generado por LaTeX.

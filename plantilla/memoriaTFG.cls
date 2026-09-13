@@ -44,8 +44,18 @@
 %% Adaptaciones de idioma
 %% ------------------------------
 
-% Terminología para tablas
+% Títulos del resumen según el idioma activo de babel.
+\newcommand{\resumenname}{Abstract}
+\newcommand{\descriptoresname}{Keywords}
+\addto\captionsenglish{%
+  \renewcommand{\resumenname}{Abstract}%
+  \renewcommand{\descriptoresname}{Keywords}%
+}
+% Terminología en español
 \addto\captionsspanish{%
+  \renewcommand{\resumenname}{Resumen}%
+  \renewcommand{\descriptoresname}{Descriptores}%
+  \renewcommand{\contentsname}{Índice}%
   \renewcommand{\tablename}{Tabla}%
   \renewcommand{\listtablename}{Índice de tablas}%
 }
@@ -101,7 +111,9 @@
 \AtBeginDocument{
   \hypersetup{pdftitle={\@title}, pdfauthor={\@autor}}
   \pagestyle{scrheadings}
-  \setstretch{1.5}          % Interlineado 15 pt para cuerpo 10 pt
+  % El cuerpo de 10 pt tiene un interlineado base de 12 pt TeX.
+  % 15 bp (puntos PDF/Word) = 15.05625 pt TeX; 15.05625 / 12 = 1.2546875.
+  \setstretch{1.2546875}    % Distancia real entre líneas del cuerpo: 15 bp
   \setlength{\parskip}{12pt}  % Espacio entre párrafos
   \setlength{\parindent}{0pt} % Sin sangría
   \hypersetup{
@@ -125,7 +137,11 @@
   headheight=18pt,
   headsep=22mm,
   bottom=1.2cm,
-  footskip=3.3cm,
+  % Con includefoot, bottom + footskip fija el límite inferior del texto.
+  % 12 + 13 = 25 mm: permite aprovechar la página sin invadir el pie.
+  % Al reducir footskip aquí, geometry amplía textheight en la misma medida
+  % y conserva la posición del pie (textheight + footskip no cambia).
+  footskip=1.3cm,
   inner=2.5cm,
   outer=2.5cm,
   includehead,
@@ -138,6 +154,11 @@
 % La compensación se aplica después de geometry para no reducir textheight.
 \setlength{\footheight}{18.93pt}
 \addtolength{\footskip}{3.93pt}
+% Alinear el número con el modelo Word (línea base a 15.54 mm del borde
+% inferior). Aplicarlo después de geometry conserva el área del texto.
+\addtolength{\footskip}{-2.97mm}
+% Compensar la posición del pie con el nuevo interlineado de 15 bp.
+\addtolength{\footskip}{1.69pt}
 
 %% ------------------------------
 %% Cabecera y pie de página
@@ -155,7 +176,8 @@
 \ofoot{\raisebox{6pt}{{\fontsize{11}{13}\selectfont\pagemark}}}
 
 % Fuente sans-serif en cabecera y pie
-\addtokomafont{pageheadfoot}{\normalfont\sffamily}
+% Conservar las métricas de la cabecera y el pie ya calibrados.
+\addtokomafont{pageheadfoot}{\normalfont\sffamily\setstretch{1.5}}
 
 % Usar scrheadings como estilo base
 \pagestyle{scrheadings}
@@ -242,12 +264,12 @@
   \pagenumbering{roman}  % Numeración en romanos
   \pagestyle{scrheadings}   % Cabecera activa
   \vspace*{3cm}
-  {\bfseries\Large Resumen\par}
+  {\bfseries\Large\resumenname\par}
   \vspace{0.5cm}
   #1 % Texto del resumen
   \vspace{2cm}
 
-  {\bfseries\Large Descriptores\par}
+  {\bfseries\Large\descriptoresname\par}
   \vspace{0.5cm}
   #2 % Texto de los descriptores
 
@@ -256,11 +278,11 @@
 
 \newcommand{\hacerresumen}{%
   \cleardoublepage\pagebreak
-  {\Large\bfseries Resumen\par\vspace{1em}}%
-  \noindent\@resumen\par
+  {\Large\bfseries\resumenname\par\vspace{1em}}%
+  \noindent\csname @resumen\endcsname\par
   \vspace{2em}%
-  {\Large\bfseries Descriptores\par\vspace{1em}}%
-  \noindent\@descriptores\thispagestyle{plain}%
+  {\Large\bfseries\descriptoresname\par\vspace{1em}}%
+  \noindent\csname @descriptores\endcsname\thispagestyle{plain}%
 }
 
 

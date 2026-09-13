@@ -69,6 +69,16 @@ También puedes trabajar en plataformas como [Overleaf](https://overleaf.com), s
 
 ## Personalización
 
+### Idioma del resumen
+
+En `plantilla/main.tex`, cambia `\selectlanguage{spanish}` por
+`\selectlanguage{english}` para mostrar el resumen de ejemplo en inglés.
+Los comandos `\resumenPersonalizado` y `\hacerresumen` utilizan los títulos
+«Resumen»/«Descriptores» en español y «Abstract»/«Keywords» en inglés, según
+el idioma activo de Babel. El resto del contenido del ejemplo sigue en español;
+los textos propios del proyecto y los descriptores de los metadatos deben
+redactarse en el idioma de la memoria.
+
 La plantilla permite configurar fácilmente los metadatos y elementos clave del documento mediante comandos definidos en el preámbulo del `main.tex`. A continuación, se describen los principales:
 
 - **Autor**  
